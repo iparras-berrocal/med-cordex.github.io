@@ -147,18 +147,19 @@ function drawCidLabels(angles) {
   for (const cid of CID_ORDER) {
     const [a1, a2] = angles[cid];
     const mid = (a1 + a2) / 2;
-    let labelRadius = radius * 1.18;
 
-    if (cid === "SST") labelRadius = radius * 1.25;
-    if (cid === "SBT") labelRadius = radius * 1.22;
-    if (cid === "Nmonth_sst_p99") labelRadius = radius * 1.22;
-    if (cid === "Nmonth_sst_p01") labelRadius = radius * 1.22;
-    if (cid === "NMONTH_T20m") labelRadius = radius * 1.24;
-    if (cid === "SSS") labelRadius = radius * 1.17;
-    if (cid === "MLD") labelRadius = radius * 1.18;
-    if (cid === "SI") labelRadius = radius * 1.20;
-    if (cid === "Nmonth_ws_p99") labelRadius = radius * 1.22;
-    if (cid === "CUIfav") labelRadius = radius * 1.18;
+    let labelRadius = radius * 1.10;
+
+    if (cid === "SST") labelRadius = radius * 1.12;
+    if (cid === "SBT") labelRadius = radius * 1.11;
+    if (cid === "Nmonth_sst_p99") labelRadius = radius * 1.11;
+    if (cid === "Nmonth_sst_p01") labelRadius = radius * 1.11;
+    if (cid === "NMONTH_T20m") labelRadius = radius * 1.12;
+    if (cid === "SSS") labelRadius = radius * 1.10;
+    if (cid === "MLD") labelRadius = radius * 1.10;
+    if (cid === "SI") labelRadius = radius * 1.10;
+    if (cid === "Nmonth_ws_p99") labelRadius = radius * 1.11;
+    if (cid === "CUIfav") labelRadius = radius * 1.10;
 
     const p = polar(labelRadius, mid);
 
@@ -311,7 +312,7 @@ function drawLegend() {
   title.textContent = "Key for level of confidence in future changes";
   svg.appendChild(title);
 
-  y += 12;
+  y += 5;
 
   for (const label of LIKE_ORDER) {
     svg.appendChild(
