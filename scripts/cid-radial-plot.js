@@ -84,8 +84,8 @@ function getCidAngles() {
   for (let i = 0; i < CID_ORDER.length; i++) {
     const cid = CID_ORDER[i];
 
-    const angle1 = -90 + i * step;
-    const angle2 = -90 + (i + 1) * step;
+    const angle1 = -108 + i * step;
+    const angle2 = -108 + (i + 1) * step;
 
     angles[cid] = [angle1, angle2];
   }
@@ -111,7 +111,7 @@ function drawPolygonRingGuides(nRings, nSides) {
     const pts = [];
 
     for (let j = 0; j < nSides; j++) {
-      pts.push(polar(r, -90 + j * step));
+      pts.push(polar(r, -180 + j * step));
     }
 
     svg.appendChild(
@@ -182,7 +182,7 @@ function drawGwlLabels(gwls) {
   const n = gwls.length;
   const ringSize = radius / n;
 
-  const angle = -78;
+  const angle = -72;
 
   for (let i = 0; i < n; i++) {
     const r = radius - (i + 0.5) * ringSize;
@@ -338,7 +338,7 @@ function drawLegend() {
     y += 24;
   }
 
-  const box2Y = y + 25;
+  const box2Y = y + 45;
 
   svg.appendChild(
     makeEl("rect", {
