@@ -1267,7 +1267,7 @@
           "fills": [
             "#F89C2E",
             "#F89C2E",
-            "#FFFFFF",
+            "#F89C2E",
             "#F89C2E",
             "#F89C2E"
           ],
@@ -1403,7 +1403,7 @@
         "MLD": {
           "fills": [
             "#FFFFFF",
-            "#FFFFFF",
+            "#9ECAE1",
             "#9ECAE1",
             "#2C7FB8",
             "#2C7FB8"
@@ -1419,7 +1419,7 @@
           "fills": [
             "#F89C2E",
             "#F89C2E",
-            "#FFFFFF",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E"
           ],
@@ -1463,7 +1463,7 @@
         "NMONTH_T20m": {
           "fills": [
             "#FDD494",
-            "#F89C2E",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E",
             "#F89C2E"
@@ -1556,7 +1556,7 @@
           "fills": [
             "#FFFFFF",
             "#FFFFFF",
-            "#9ECAE1",
+            "#FFFFFF",
             "#FFFFFF",
             "#2C7FB8"
           ],
@@ -1571,8 +1571,8 @@
           "fills": [
             "#F89C2E",
             "#F89C2E",
-            "#FFFFFF",
-            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E",
             "#F89C2E"
           ],
           "trend": {
@@ -1694,7 +1694,7 @@
             "#FFFFFF",
             "#FFFFFF",
             "#F89C2E",
-            "#F89C2E",
+            "#FFFFFF",
             "#FFFFFF"
           ],
           "trend": {
@@ -1724,7 +1724,7 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF",
+            "#F89C2E",
             "#F89C2E"
           ],
           "trend": {
@@ -1768,8 +1768,8 @@
           "fills": [
             "#FDD494",
             "#FFFFFF",
-            "#F89C2E",
-            "#F89C2E",
+            "#FFFFFF",
+            "#FFFFFF",
             "#F89C2E"
           ],
           "trend": {
@@ -1844,7 +1844,7 @@
         "SSS": {
           "fills": [
             "#FFFFFF",
-            "#FDD494",
+            "#F89C2E",
             "#FFFFFF",
             "#FFFFFF",
             "#FDD494"
@@ -1874,9 +1874,9 @@
         "SI": {
           "fills": [
             "#FDD494",
-            "#FFFFFF",
-            "#FFFFFF",
             "#FDD494",
+            "#FFFFFF",
+            "#F89C2E",
             "#F89C2E"
           ],
           "trend": {
@@ -1891,7 +1891,7 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FDD494",
+            "#FFFFFF",
             "#FDD494"
           ],
           "trend": {
@@ -1919,9 +1919,9 @@
         "NMONTH_T20m": {
           "fills": [
             "#FDD494",
-            "#FDD494",
-            "#F89C2E",
-            "#F89C2E",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
             "#F89C2E"
           ],
           "trend": {
@@ -2027,8 +2027,8 @@
           "fills": [
             "#FDD494",
             "#F89C2E",
-            "#FFFFFF",
-            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E",
             "#F89C2E"
           ],
           "trend": {
@@ -2164,7 +2164,7 @@
           "fills": [
             "#FFFFFF",
             "#FFFFFF",
-            "#9ECAE1",
+            "#FFFFFF",
             "#FFFFFF",
             "#9ECAE1"
           ],
@@ -2179,7 +2179,7 @@
           "fills": [
             "#F89C2E",
             "#F89C2E",
-            "#FFFFFF",
+            "#F89C2E",
             "#F89C2E",
             "#F89C2E"
           ],
@@ -2333,7 +2333,7 @@
           "fills": [
             "#F89C2E",
             "#F89C2E",
-            "#FFFFFF",
+            "#F89C2E",
             "#F89C2E",
             "#F89C2E"
           ],
@@ -2442,7 +2442,7 @@
             "#9ECAE1",
             "#9ECAE1",
             "#2C7FB8",
-            "#2C7FB8"
+            "#9ECAE1"
           ],
           "trend": {
             "direction": "down",
@@ -2471,7 +2471,7 @@
             "#FFFFFF",
             "#FFFFFF",
             "#9ECAE1",
-            "#2C7FB8",
+            "#9ECAE1",
             "#2C7FB8"
           ],
           "trend": {
@@ -2485,7 +2485,7 @@
           "fills": [
             "#FDD494",
             "#F89C2E",
-            "#FFFFFF",
+            "#FDD494",
             "#F89C2E",
             "#F89C2E"
           ],
@@ -2637,7 +2637,7 @@
           "fills": [
             "#F89C2E",
             "#F89C2E",
-            "#FFFFFF",
+            "#F89C2E",
             "#FFFFFF",
             "#F89C2E"
           ],
@@ -2790,7 +2790,7 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#FFFFFF",
+            "#F89C2E",
             "#F89C2E"
           ],
           "trend": {
@@ -2821,7 +2821,7 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FFFFFF",
-            "#9ECAE1"
+            "#FFFFFF"
           ],
           "trend": {
             "direction": "up",
@@ -2912,7 +2912,7 @@
             "#FDD494",
             "#FDD494",
             "#FFFFFF",
-            "#FFFFFF",
+            "#F89C2E",
             "#FDD494"
           ],
           "trend": {
@@ -2943,7 +2943,7 @@
             "#FFFFFF",
             "#FFFFFF",
             "#FDD494",
-            "#F89C2E"
+            "#FFFFFF"
           ],
           "trend": {
             "direction": "up",
@@ -3093,8 +3093,8 @@
           "fills": [
             "#FDD494",
             "#F89C2E",
-            "#FFFFFF",
-            "#FFFFFF",
+            "#F89C2E",
+            "#F89C2E",
             "#F89C2E"
           ],
           "trend": {
@@ -3245,7 +3245,7 @@
           "fills": [
             "#F89C2E",
             "#F89C2E",
-            "#FFFFFF",
+            "#F89C2E",
             "#F89C2E",
             "#F89C2E"
           ],
