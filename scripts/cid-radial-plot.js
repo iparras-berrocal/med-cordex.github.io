@@ -131,7 +131,7 @@ function updatePlot() {
 
 }
 
-fetch("/images/cid_data.json")
+fetch(window.location.origin + "/med-cordex.github.io/images/cid_data.json")
   .then(r => r.json())
   .then(data => {
 
