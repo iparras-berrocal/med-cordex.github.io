@@ -194,7 +194,7 @@ function drawGwlLabels(gwls) {
       y: p.y,
       "text-anchor": "middle",
       "dominant-baseline": "middle",
-      "font-size": 10.5,
+      "font-size": 12,
       "font-weight": "bold",
       fill: "black"
     });
@@ -330,7 +330,7 @@ function drawLegend() {
     const text = makeEl("text", {
       x: x + 42,
       y: y + 11,
-      "font-size": 13
+      "font-size": 14
     });
 
     text.textContent = label;
