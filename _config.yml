@@ -4,8 +4,8 @@ remote_theme: "mmistakes/so-simple-theme@3.2.0"
 # Site settings
 title: "Med-CORDEX"
 description: "International initiative for coordinated regional climate modeling in the Mediterranean region."
-url: "https://www.medcordex.eu" # Update if deploying elsewhere
-baseurl: "" # No subdirectory
+url: "https://iparras-berrocal.github.io" # Update if deploying elsewhere
+baseurl: "/med-cordex.github.io" # No subdirectory
 
 # Author settings
 author:
