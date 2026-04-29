@@ -1,156 +1,436 @@
 let CID_DATA = null;
 
-const width = 600;
-const height = 600;
+const width = 720;
+const height = 860;
 const radius = 250;
+const centerX = width / 2;
+const centerY = 330;
+
+const CID_ORDER = [
+  "SI",
+  "MLD",
+  "SSS",
+  "NMONTH_T20m",
+  "Nmonth_sst_p01",
+  "Nmonth_sst_p99",
+  "SBT",
+  "SST",
+  "CUIfav",
+  "Nmonth_ws_p99"
+];
+
+const CID_LABELS = {
+  SST: "SST",
+  SBT: "SBT",
+  Nmonth_sst_p99: "NM SST>P99",
+  Nmonth_sst_p01: "NM SST<P1",
+  SSS: "SSS",
+  MLD: "MLDₘₐₓ",
+  SI: "SI",
+  CUIfav: "CUI",
+  Nmonth_ws_p99: "NMτ>P99",
+  NMONTH_T20m: "NM T₂₀ₘ >25°C"
+};
+
+const LIKE_ORDER = [
+  "High confidence of increase",
+  "Low confidence of increase",
+  "Low confidence in direction of change",
+  "Low confidence of decrease",
+  "High confidence of decrease",
+  "Not broadly relevant"
+];
+
+const IPCC_COLOR_MAP = {
+  "High confidence of increase": "#F89C2E",
+  "Low confidence of increase": "#FDD494",
+  "Low confidence in direction of change": "#FFFFFF",
+  "Low confidence of decrease": "#9ECAE1",
+  "High confidence of decrease": "#2C7FB8",
+  "Not broadly relevant": "#C9C9C9"
+};
 
 const container = document.getElementById("cid-radial-plot");
 
-const svg = document.createElementNS(
-  "http://www.w3.org/2000/svg",
-  "svg"
-);
+container.innerHTML = "";
 
+const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 svg.setAttribute("width", width);
 svg.setAttribute("height", height);
+svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+svg.style.maxWidth = "100%";
+svg.style.height = "auto";
 
 container.appendChild(svg);
 
-const centerX = width / 2;
-const centerY = height / 2;
+function makeEl(name, attrs = {}) {
+  const el = document.createElementNS("http://www.w3.org/2000/svg", name);
 
-function polarToCartesian(r, angleDeg) {
+  for (const [key, value] of Object.entries(attrs)) {
+    el.setAttribute(key, value);
+  }
 
-  const angle = (angleDeg - 90) * Math.PI / 180;
+  return el;
+}
+
+function polar(r, angleDeg) {
+  const angle = angleDeg * Math.PI / 180;
 
   return {
     x: centerX + r * Math.cos(angle),
     y: centerY + r * Math.sin(angle)
   };
-
 }
 
-function drawSector(
-  rOuter,
-  rInner,
-  angle1,
-  angle2,
-  color
-) {
-
-  const p1 = polarToCartesian(rOuter, angle1);
-  const p2 = polarToCartesian(rOuter, angle2);
-  const p3 = polarToCartesian(rInner, angle2);
-  const p4 = polarToCartesian(rInner, angle1);
-
-  const path = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "path"
-  );
-
-  const d = `
-    M ${p1.x} ${p1.y}
-    A ${rOuter} ${rOuter} 0 0 1 ${p2.x} ${p2.y}
-    L ${p3.x} ${p3.y}
-    A ${rInner} ${rInner} 0 0 0 ${p4.x} ${p4.y}
-    Z
-  `;
-
-  path.setAttribute("d", d);
-  path.setAttribute("fill", color);
-  path.setAttribute("stroke", "black");
-  path.setAttribute("stroke-width", "0.8");
-
-  svg.appendChild(path);
-
-}
-
-function clearPlot() {
-
+function clearSvg() {
   while (svg.firstChild) {
     svg.removeChild(svg.firstChild);
   }
+}
 
+function polygonPoints(points) {
+  return points.map(p => `${p.x},${p.y}`).join(" ");
+}
+
+function drawPolygonRingGuides(nRings, nSides) {
+  const step = 360 / nSides;
+
+  for (let i = 0; i < nRings; i++) {
+    const r = radius - i * (radius / nRings);
+    const pts = [];
+
+    for (let j = 0; j < nSides; j++) {
+      pts.push(polar(r, -180 + j * step));
+    }
+
+    svg.appendChild(
+      makeEl("polygon", {
+        points: polygonPoints(pts),
+        fill: "none",
+        stroke: "lightgrey",
+        "stroke-width": 1
+      })
+    );
+  }
+}
+
+function drawSectorPolygon(rOuter, rInner, angle1, angle2, fill) {
+  const points = [
+    polar(rOuter, angle1),
+    polar(rOuter, angle2),
+    polar(rInner, angle2),
+    polar(rInner, angle1)
+  ];
+
+  svg.appendChild(
+    makeEl("polygon", {
+      points: polygonPoints(points),
+      fill: fill,
+      stroke: "black",
+      "stroke-width": 0.8
+    })
+  );
+}
+
+function drawCidLabels(angles) {
+  for (const cid of CID_ORDER) {
+    if (!angles[cid]) continue;
+
+    const [a1, a2] = angles[cid];
+    const mid = (a1 + a2) / 2;
+    const p = polar(radius * 1.2, mid);
+
+    const text = makeEl("text", {
+      x: p.x,
+      y: p.y,
+      "text-anchor": "middle",
+      "dominant-baseline": "middle",
+      "font-size": 13,
+      "font-weight": "bold",
+      fill: "gray"
+    });
+
+    text.textContent = CID_LABELS[cid] || cid;
+    svg.appendChild(text);
+  }
+}
+
+function drawGwlLabels(gwls) {
+  const labels = ["Hist."].concat(gwls.slice(1).map(g => `+${g}°C`));
+  const n = gwls.length;
+  const ringSize = radius / n;
+
+  const angle = -162;
+
+  for (let i = 0; i < n; i++) {
+    const r = radius - (i + 0.5) * ringSize;
+    const p = polar(r, angle);
+
+    const text = makeEl("text", {
+      x: p.x,
+      y: p.y,
+      "text-anchor": "middle",
+      "dominant-baseline": "middle",
+      "font-size": 11,
+      "font-weight": "bold",
+      fill: "black"
+    });
+
+    text.textContent = labels[i];
+    svg.appendChild(text);
+  }
+}
+
+function drawTrendArrow(angle1, angle2, trend) {
+  if (!trend || !trend.significant || !trend.direction) return;
+
+  const mid = (angle1 + angle2) / 2;
+  const ringSize = radius / 5;
+  const r = radius - 0.55 * ringSize;
+  const c = polar(r, mid);
+
+  const arrowAngle = trend.direction === "up" ? -45 : 45;
+  const len = 30;
+  const dx = Math.cos(arrowAngle * Math.PI / 180) * len;
+  const dy = Math.sin(arrowAngle * Math.PI / 180) * len;
+
+  const line = makeEl("line", {
+    x1: c.x - dx / 2,
+    y1: c.y - dy / 2,
+    x2: c.x + dx / 2,
+    y2: c.y + dy / 2,
+    stroke: "black",
+    "stroke-width": 2,
+    "marker-end": "url(#arrowhead)"
+  });
+
+  svg.appendChild(line);
+}
+
+function addArrowMarker() {
+  const defs = makeEl("defs");
+
+  const marker = makeEl("marker", {
+    id: "arrowhead",
+    markerWidth: 10,
+    markerHeight: 7,
+    refX: 9,
+    refY: 3.5,
+    orient: "auto"
+  });
+
+  marker.appendChild(
+    makeEl("polygon", {
+      points: "0 0, 10 3.5, 0 7",
+      fill: "black"
+    })
+  );
+
+  defs.appendChild(marker);
+  svg.appendChild(defs);
+}
+
+function drawTitle(region) {
+  const text = makeEl("text", {
+    x: centerX,
+    y: 35,
+    "text-anchor": "middle",
+    "font-size": 15,
+    "font-weight": "bold",
+    fill: "black"
+  });
+
+  text.textContent = region;
+  svg.appendChild(text);
+}
+
+function drawLegend() {
+  const x = 120;
+  let y = 625;
+
+  const box = makeEl("rect", {
+    x: x - 20,
+    y: y - 35,
+    width: 500,
+    height: 185,
+    fill: "white",
+    stroke: "#cccccc",
+    "stroke-width": 1
+  });
+
+  svg.appendChild(box);
+
+  const title = makeEl("text", {
+    x,
+    y: y - 15,
+    "font-size": 13,
+    "font-weight": "bold"
+  });
+
+  title.textContent = "Key for level of confidence in future changes";
+  svg.appendChild(title);
+
+  y += 10;
+
+  for (const label of LIKE_ORDER) {
+    svg.appendChild(
+      makeEl("rect", {
+        x,
+        y,
+        width: 26,
+        height: 12,
+        fill: IPCC_COLOR_MAP[label],
+        stroke: "black",
+        "stroke-width": 0.8
+      })
+    );
+
+    const text = makeEl("text", {
+      x: x + 38,
+      y: y + 10,
+      "font-size": 12
+    });
+
+    text.textContent = label;
+    svg.appendChild(text);
+
+    y += 22;
+  }
+
+  const box2Y = y + 18;
+
+  svg.appendChild(
+    makeEl("rect", {
+      x: x - 20,
+      y: box2Y - 28,
+      width: 500,
+      height: 55,
+      fill: "white",
+      stroke: "#cccccc",
+      "stroke-width": 1
+    })
+  );
+
+  const title2 = makeEl("text", {
+    x,
+    y: box2Y - 10,
+    "font-size": 12,
+    "font-weight": "bold"
+  });
+
+  title2.textContent = "Key for observational trend evidence";
+  svg.appendChild(title2);
+
+  drawLegendArrow(x + 15, box2Y + 12, "up");
+  drawLegendArrow(x + 190, box2Y + 12, "down");
+
+  const upText = makeEl("text", {
+    x: x + 35,
+    y: box2Y + 16,
+    "font-size": 11
+  });
+
+  upText.textContent = "Past upward trend";
+  svg.appendChild(upText);
+
+  const downText = makeEl("text", {
+    x: x + 210,
+    y: box2Y + 16,
+    "font-size": 11
+  });
+
+  downText.textContent = "Past downward trend";
+  svg.appendChild(downText);
+}
+
+function drawLegendArrow(x, y, direction) {
+  const angle = direction === "up" ? -45 : 45;
+  const len = 18;
+  const dx = Math.cos(angle * Math.PI / 180) * len;
+  const dy = Math.sin(angle * Math.PI / 180) * len;
+
+  svg.appendChild(
+    makeEl("line", {
+      x1: x - dx / 2,
+      y1: y - dy / 2,
+      x2: x + dx / 2,
+      y2: y + dy / 2,
+      stroke: "black",
+      "stroke-width": 2,
+      "marker-end": "url(#arrowhead)"
+    })
+  );
 }
 
 function drawRadial(method, region) {
-
-  clearPlot();
+  clearSvg();
+  addArrowMarker();
 
   const meta = CID_DATA.metadata;
-
   const angles = meta.cid_sector_angles;
-
   const gwls = meta.gwls;
-
-  const data =
-    CID_DATA.data[method][region];
+  const data = CID_DATA.data[method][region];
 
   const nRings = gwls.length;
-
   const ringSize = radius / nRings;
 
-  for (const cid in data) {
+  drawTitle(region);
+  drawPolygonRingGuides(nRings, 10);
+
+  for (const cid of CID_ORDER) {
+    if (!data[cid] || !angles[cid]) continue;
 
     const fills = data[cid].fills;
-
-    const angle1 = angles[cid][0];
-    const angle2 = angles[cid][1];
+    const [angle1, angle2] = angles[cid];
 
     for (let i = 0; i < fills.length; i++) {
+      const rOuter = radius - i * ringSize;
+      const rInner = radius - (i + 1) * ringSize;
 
-      const rOuter =
-        radius - i * ringSize;
-
-      const rInner =
-        radius - (i + 1) * ringSize;
-
-      drawSector(
+      drawSectorPolygon(
         rOuter,
         rInner,
         angle1,
         angle2,
         fills[i]
       );
-
     }
 
+    drawTrendArrow(angle1, angle2, data[cid].trend);
   }
 
+  drawCidLabels(angles);
+  drawGwlLabels(gwls);
+  drawLegend();
 }
 
 function updatePlot() {
-
-  const method =
-    document.getElementById("cid-method").value;
-
-  const region =
-    document.getElementById("cid-region").value;
+  const method = document.getElementById("cid-method").value;
+  const region = document.getElementById("cid-region").value;
 
   drawRadial(method, region);
-
 }
 
-fetch(window.location.origin + "/med-cordex.github.io/images/cid_data.json")
+const basePath = window.location.pathname.includes("/med-cordex.github.io/")
+  ? "/med-cordex.github.io"
+  : "";
+
+fetch(`${basePath}/images/cid_data.json`)
   .then(r => r.json())
   .then(data => {
-
     CID_DATA = data;
 
     document
       .getElementById("cid-method")
-      .addEventListener(
-        "change",
-        updatePlot
-      );
+      .addEventListener("change", updatePlot);
 
     document
       .getElementById("cid-region")
-      .addEventListener(
-        "change",
-        updatePlot
-      );
+      .addEventListener("change", updatePlot);
 
     updatePlot();
-
+  })
+  .catch(error => {
+    container.innerHTML =
+      `<p style="color:red;">Could not load CID data: ${error}</p>`;
   });
