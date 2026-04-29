@@ -1,22 +1,22 @@
 let CID_DATA = null;
 
-const width = 720;
-const height = 860;
-const radius = 250;
+const width = 760;
+const height = 940;
+const radius = 235;
 const centerX = width / 2;
-const centerY = 330;
+const centerY = 345;
 
 const CID_ORDER = [
-  "SI",
-  "MLD",
-  "SSS",
-  "NMONTH_T20m",
-  "Nmonth_sst_p01",
-  "Nmonth_sst_p99",
-  "SBT",
   "SST",
-  "CUIfav",
-  "Nmonth_ws_p99"
+  "SBT",
+  "Nmonth_sst_p99",
+  "Nmonth_sst_p01",
+  "NMONTH_T20m",
+  "SSS",
+  "MLD",
+  "SI",
+  "Nmonth_ws_p99",
+  "CUIfav"
 ];
 
 const CID_LABELS = {
@@ -51,7 +51,6 @@ const IPCC_COLOR_MAP = {
 };
 
 const container = document.getElementById("cid-radial-plot");
-
 container.innerHTML = "";
 
 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -60,26 +59,38 @@ svg.setAttribute("height", height);
 svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
 svg.style.maxWidth = "100%";
 svg.style.height = "auto";
-
 container.appendChild(svg);
 
 function makeEl(name, attrs = {}) {
   const el = document.createElementNS("http://www.w3.org/2000/svg", name);
-
   for (const [key, value] of Object.entries(attrs)) {
     el.setAttribute(key, value);
   }
-
   return el;
 }
 
 function polar(r, angleDeg) {
   const angle = angleDeg * Math.PI / 180;
-
   return {
     x: centerX + r * Math.cos(angle),
     y: centerY + r * Math.sin(angle)
   };
+}
+
+function getCidAngles() {
+  const step = 360 / CID_ORDER.length;
+  const angles = {};
+
+  for (let i = 0; i < CID_ORDER.length; i++) {
+    const cid = CID_ORDER[i];
+
+    const angle1 = -90 + i * step;
+    const angle2 = -90 + (i + 1) * step;
+
+    angles[cid] = [angle1, angle2];
+  }
+
+  return angles;
 }
 
 function clearSvg() {
@@ -100,7 +111,7 @@ function drawPolygonRingGuides(nRings, nSides) {
     const pts = [];
 
     for (let j = 0; j < nSides; j++) {
-      pts.push(polar(r, -180 + j * step));
+      pts.push(polar(r, -90 + j * step));
     }
 
     svg.appendChild(
@@ -134,11 +145,22 @@ function drawSectorPolygon(rOuter, rInner, angle1, angle2, fill) {
 
 function drawCidLabels(angles) {
   for (const cid of CID_ORDER) {
-    if (!angles[cid]) continue;
-
     const [a1, a2] = angles[cid];
     const mid = (a1 + a2) / 2;
-    const p = polar(radius * 1.2, mid);
+    let labelRadius = radius * 1.18;
+
+    if (cid === "SST") labelRadius = radius * 1.25;
+    if (cid === "SBT") labelRadius = radius * 1.22;
+    if (cid === "Nmonth_sst_p99") labelRadius = radius * 1.22;
+    if (cid === "Nmonth_sst_p01") labelRadius = radius * 1.22;
+    if (cid === "NMONTH_T20m") labelRadius = radius * 1.24;
+    if (cid === "SSS") labelRadius = radius * 1.17;
+    if (cid === "MLD") labelRadius = radius * 1.18;
+    if (cid === "SI") labelRadius = radius * 1.20;
+    if (cid === "Nmonth_ws_p99") labelRadius = radius * 1.22;
+    if (cid === "CUIfav") labelRadius = radius * 1.18;
+
+    const p = polar(labelRadius, mid);
 
     const text = makeEl("text", {
       x: p.x,
@@ -160,7 +182,7 @@ function drawGwlLabels(gwls) {
   const n = gwls.length;
   const ringSize = radius / n;
 
-  const angle = -162;
+  const angle = -78;
 
   for (let i = 0; i < n; i++) {
     const r = radius - (i + 0.5) * ringSize;
@@ -171,7 +193,7 @@ function drawGwlLabels(gwls) {
       y: p.y,
       "text-anchor": "middle",
       "dominant-baseline": "middle",
-      "font-size": 11,
+      "font-size": 10.5,
       "font-weight": "bold",
       fill: "black"
     });
@@ -190,21 +212,21 @@ function drawTrendArrow(angle1, angle2, trend) {
   const c = polar(r, mid);
 
   const arrowAngle = trend.direction === "up" ? -45 : 45;
-  const len = 30;
+  const len = 22;
   const dx = Math.cos(arrowAngle * Math.PI / 180) * len;
   const dy = Math.sin(arrowAngle * Math.PI / 180) * len;
 
-  const line = makeEl("line", {
-    x1: c.x - dx / 2,
-    y1: c.y - dy / 2,
-    x2: c.x + dx / 2,
-    y2: c.y + dy / 2,
-    stroke: "black",
-    "stroke-width": 2,
-    "marker-end": "url(#arrowhead)"
-  });
-
-  svg.appendChild(line);
+  svg.appendChild(
+    makeEl("line", {
+      x1: c.x - dx / 2,
+      y1: c.y - dy / 2,
+      x2: c.x + dx / 2,
+      y2: c.y + dy / 2,
+      stroke: "black",
+      "stroke-width": 1.6,
+      "marker-end": "url(#arrowhead)"
+    })
+  );
 }
 
 function addArrowMarker() {
@@ -212,16 +234,16 @@ function addArrowMarker() {
 
   const marker = makeEl("marker", {
     id: "arrowhead",
-    markerWidth: 10,
-    markerHeight: 7,
-    refX: 9,
-    refY: 3.5,
+    markerWidth: 8,
+    markerHeight: 6,
+    refX: 7,
+    refY: 3,
     orient: "auto"
   });
 
   marker.appendChild(
     makeEl("polygon", {
-      points: "0 0, 10 3.5, 0 7",
+      points: "0 0, 8 3, 0 6",
       fill: "black"
     })
   );
@@ -233,7 +255,7 @@ function addArrowMarker() {
 function drawTitle(region) {
   const text = makeEl("text", {
     x: centerX,
-    y: 35,
+    y: 42,
     "text-anchor": "middle",
     "font-size": 15,
     "font-weight": "bold",
@@ -242,105 +264,6 @@ function drawTitle(region) {
 
   text.textContent = region;
   svg.appendChild(text);
-}
-
-function drawLegend() {
-  const x = 120;
-  let y = 625;
-
-  const box = makeEl("rect", {
-    x: x - 20,
-    y: y - 35,
-    width: 500,
-    height: 185,
-    fill: "white",
-    stroke: "#cccccc",
-    "stroke-width": 1
-  });
-
-  svg.appendChild(box);
-
-  const title = makeEl("text", {
-    x,
-    y: y - 15,
-    "font-size": 13,
-    "font-weight": "bold"
-  });
-
-  title.textContent = "Key for level of confidence in future changes";
-  svg.appendChild(title);
-
-  y += 10;
-
-  for (const label of LIKE_ORDER) {
-    svg.appendChild(
-      makeEl("rect", {
-        x,
-        y,
-        width: 26,
-        height: 12,
-        fill: IPCC_COLOR_MAP[label],
-        stroke: "black",
-        "stroke-width": 0.8
-      })
-    );
-
-    const text = makeEl("text", {
-      x: x + 38,
-      y: y + 10,
-      "font-size": 12
-    });
-
-    text.textContent = label;
-    svg.appendChild(text);
-
-    y += 22;
-  }
-
-  const box2Y = y + 18;
-
-  svg.appendChild(
-    makeEl("rect", {
-      x: x - 20,
-      y: box2Y - 28,
-      width: 500,
-      height: 55,
-      fill: "white",
-      stroke: "#cccccc",
-      "stroke-width": 1
-    })
-  );
-
-  const title2 = makeEl("text", {
-    x,
-    y: box2Y - 10,
-    "font-size": 12,
-    "font-weight": "bold"
-  });
-
-  title2.textContent = "Key for observational trend evidence";
-  svg.appendChild(title2);
-
-  drawLegendArrow(x + 15, box2Y + 12, "up");
-  drawLegendArrow(x + 190, box2Y + 12, "down");
-
-  const upText = makeEl("text", {
-    x: x + 35,
-    y: box2Y + 16,
-    "font-size": 11
-  });
-
-  upText.textContent = "Past upward trend";
-  svg.appendChild(upText);
-
-  const downText = makeEl("text", {
-    x: x + 210,
-    y: box2Y + 16,
-    "font-size": 11
-  });
-
-  downText.textContent = "Past downward trend";
-  svg.appendChild(downText);
 }
 
 function drawLegendArrow(x, y, direction) {
@@ -356,10 +279,109 @@ function drawLegendArrow(x, y, direction) {
       x2: x + dx / 2,
       y2: y + dy / 2,
       stroke: "black",
-      "stroke-width": 2,
+      "stroke-width": 1.6,
       "marker-end": "url(#arrowhead)"
     })
   );
+}
+
+function drawLegend() {
+  const x = 130;
+  let y = 675;
+
+  svg.appendChild(
+    makeEl("rect", {
+      x: x - 25,
+      y: y - 40,
+      width: 520,
+      height: 200,
+      fill: "white",
+      stroke: "#cccccc",
+      "stroke-width": 1
+    })
+  );
+
+  const title = makeEl("text", {
+    x,
+    y: y - 18,
+    "font-size": 14,
+    "font-weight": "bold"
+  });
+
+  title.textContent = "Key for level of confidence in future changes";
+  svg.appendChild(title);
+
+  y += 12;
+
+  for (const label of LIKE_ORDER) {
+    svg.appendChild(
+      makeEl("rect", {
+        x,
+        y,
+        width: 28,
+        height: 13,
+        fill: IPCC_COLOR_MAP[label],
+        stroke: "black",
+        "stroke-width": 0.8
+      })
+    );
+
+    const text = makeEl("text", {
+      x: x + 42,
+      y: y + 11,
+      "font-size": 13
+    });
+
+    text.textContent = label;
+    svg.appendChild(text);
+
+    y += 24;
+  }
+
+  const box2Y = y + 25;
+
+  svg.appendChild(
+    makeEl("rect", {
+      x: x - 25,
+      y: box2Y - 30,
+      width: 520,
+      height: 62,
+      fill: "white",
+      stroke: "#cccccc",
+      "stroke-width": 1
+    })
+  );
+
+  const title2 = makeEl("text", {
+    x,
+    y: box2Y - 11,
+    "font-size": 13,
+    "font-weight": "bold"
+  });
+
+  title2.textContent = "Key for observational trend evidence";
+  svg.appendChild(title2);
+
+  drawLegendArrow(x + 18, box2Y + 15, "up");
+  drawLegendArrow(x + 220, box2Y + 15, "down");
+
+  const upText = makeEl("text", {
+    x: x + 42,
+    y: box2Y + 19,
+    "font-size": 12.5
+  });
+
+  upText.textContent = "Past upward trend";
+  svg.appendChild(upText);
+
+  const downText = makeEl("text", {
+    x: x + 245,
+    y: box2Y + 19,
+    "font-size": 12.5
+  });
+
+  downText.textContent = "Past downward trend";
+  svg.appendChild(downText);
 }
 
 function drawRadial(method, region) {
@@ -367,7 +389,7 @@ function drawRadial(method, region) {
   addArrowMarker();
 
   const meta = CID_DATA.metadata;
-  const angles = meta.cid_sector_angles;
+  const angles = getCidAngles();
   const gwls = meta.gwls;
   const data = CID_DATA.data[method][region];
 
@@ -378,7 +400,7 @@ function drawRadial(method, region) {
   drawPolygonRingGuides(nRings, 10);
 
   for (const cid of CID_ORDER) {
-    if (!data[cid] || !angles[cid]) continue;
+    if (!data[cid]) continue;
 
     const fills = data[cid].fills;
     const [angle1, angle2] = angles[cid];
