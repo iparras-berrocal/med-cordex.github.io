@@ -9,13 +9,13 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
 
 {% include toc %}
 
-## Publications based on Med-CORDEX simulations (total: 187)
+## Publications based on Med-CORDEX simulations (total: 190)
 
 ### 2026 (1 publication)
 
  * Hamitouche, M., Fosser, G., RafieeiNasab, A., Anav, A., [Towards improved Euro-Mediterranean discharge simulations in regional coupled climate models: a comparative assessment of hydrologic performance](https://doi.org/10.5194/gmd-19-2881-2026), Geoscientific Model Development, 2026
 
-### 2025 (13 publications)
+### 2025 (14 publications)
 
  * Batibeniz, F., Önol, B., Turuncoglu, U., Raible, C., [Air–sea interaction in medicanes with atmosphere–ocean–wave coupled regional climate simulations](https://doi.org/10.1002/qj.5040), Quarterly Journal of the Royal Meteorological Society, 2025
  * Chericoni, M., Fosser, G., Flaounas, E., Gaetani, M., Anav, A., [Unravelling drivers of the future Mediterranean precipitation paradox during cyclones](https://doi.org/10.1038/s41612-025-01121-w), npj Climate and Atmospheric Science, 2025
@@ -28,6 +28,7 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
  * Karagiorgos, J., Patlakas, P., Vervatis, V., Sofianos, S., [The Role of Ocean Penetrative Solar Radiation in the Evolution of Mediterranean Storm Daniel](https://doi.org/10.3390/rs17152684), Remote Sensing, 2025
  * Karagiorgos, J., Vervatis, V., Sofianos, S., [Ocean Chlorophyll Feedback in a Coupled Ocean‐Atmosphere Model for the Mediterranean and Black Seas](https://doi.org/10.1029/2024JC021985), Journal of Geophysical Research: Oceans, 2025
  * Nabat, P., Somot, S., Boé, J., Corre, L., Katragkou, E., Li, S., Mallet, M., Meijgaard, E., Pavlidis, V., Pietikäinen, J., Sørland, S., Solmon, F., [Multi-model assessment of the role of anthropogenic aerosols in summertime climate change in Europe](https://cnrs.hal.science/hal-04867901), Geophysical Research Letters, 2025
+ * Parasyris, A., Metheniti, V., Kampanis, N., Darmaraki, S., [Marine heatwaves in the Mediterranean Sea: a convolutional neural network study for extreme event prediction](https://doi.org/10.5194/os-21-897-2025), Ocean Science, 2025
  * Parras-Berrocal, I., Waldman, R., Gonzalez, N., Ahrens, B., Cabos, W., Jordà, G., Lionello, P., Sannino, G., Somot, S., [Regionalized Mediterranean relative sea level projections under high-emission regional climate scenarios](https://doi.org/10.1088/1748-9326/ae15a5), Environmental Research Letters, 2025
  * Zhang, Y., Sevault, F., Pennel, R., Baklouti, M., [Analysis of the impact of vertical variation and temporal frequency of the chlorophyll forcing field on modelled temperature in the Mediterranean Sea and potential implications for regional climate projections](https://doi.org/10.1016/j.ocemod.2024.102490), Ocean Modelling, 2025
 
@@ -60,13 +61,14 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
  * Simon, C., Kis, A., Torma, C., [Temperature characteristics over the Carpathian Basin‐projected changes of climate indices at regional and local scale based on bias‐adjusted <span style="font-variant:small-caps;">CORDEX</span> simulations](https://doi.org/10.1002/joc.8045), International Journal of Climatology, 2023
  * Zittis, G., Ahrens, B., Obermann-Hellhund, A., Giannakis, E., Risto, D., Agulles Gamez, M., Jorda, G., Quesada Peña, M., Lora Rodríguez, V., Guersi Sauret, J., Lionello, P., Briche, E., Collignan, J., Grätz, M., Arikas, D., Stylianou, C., Neophytou, H., Serghides, D., [Maritime transport and regional climate change impacts in large EU islands and archipelagos](https://doi.org/10.1007/s41207-023-00370-6), Euro-Mediterranean Journal for Environmental Integration, 2023
 
-### 2022 (6 publications)
+### 2022 (7 publications)
 
  * De La Vara, A., Parras-Berrocal, I., Izquierdo, A., Sein, D., Cabos, W., [Climate change signal in the ocean circulation of the Tyrrhenian Sea](https://doi.org/10.5194/esd-13-303-2022), Earth System Dynamics, 2022
  * Obermann-Hellhund, A., [State of the Simulation of Mesoscale Winds in the Mediterranean and Opportunities for Improvements](https://doi.org/10.3390/atmos13071007), Atmosphere, 2022
  * Parras‐Berrocal, I., Vázquez, R., Cabos, W., Sein, D., Álvarez, O., Bruno, M., Izquierdo, A., [Surface and Intermediate Water Changes Triggering the Future Collapse of Deep Water Formation in the North Western Mediterranean](https://doi.org/10.1029/2021GL095404), Geophysical Research Letters, 2022
  * Reale, M., Cabos Narvaez, W., Cavicchia, L., Conte, D., Coppola, E., Flaounas, E., Giorgi, F., Gualdi, S., Hochman, A., Li, L., Lionello, P., Podrascanin, Z., Salon, S., Sanchez-Gomez, E., Scoccimarro, E., Sein, D., Somot, S., [Future projections of Mediterranean cyclone characteristics using the Med-CORDEX ensemble of coupled regional climate system models](https://doi.org/10.1007/s00382-021-06018-x), Climate Dynamics, 2022
  * Reale, M., Cossarini, G., Lazzari, P., Lovato, T., Bolzon, G., Masina, S., Solidoro, C., Salon, S., [Acidification, deoxygenation, and nutrient and biomass declines in a warming Mediterranean Sea](https://doi.org/10.5194/bg-19-4035-2022), Biogeosciences, 2022
+ * Réveillet, M., Dumont, M., Gascoin, S., Lafaysse, M., Nabat, P., Ribes, A., Nheili, R., Tuzet, F., Ménégoz, M., Morin, S., Picard, G., Ginoux, P., [Black carbon and dust alter the response of mountain snow cover under climate change](https://doi.org/10.1038/s41467-022-32501-y), Nature Communications, 2022
  * Solidoro, C., Cossarini, G., Lazzari, P., Galli, G., Bolzon, G., Somot, S., Salon, S., [Modeling Carbon Budgets and Acidification in the Mediterranean Sea Ecosystem Under Contemporary and Future Climate](https://doi.org/10.3389/fmars.2021.781522), Frontiers in Marine Science, 2022
 
 ### 2021 (8 publications)
@@ -118,7 +120,7 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
  * Torma, C., [Detailed validation of EURO-CORDEX and Med-CORDEX regional climate model ensembles over the Carpathian Region](https://doi.org/10.28974/idojaras.2019.2.6), Időjárás, 2019
  * Vara, A., del Sastre, P., Arsouze, T., Gallardo, C., Gaertner, M., [Role of atmospheric resolution in the long-term seasonal variability of the Tyrrhenian Sea circulation from a set of ocean hindcast simulations (1997–2008)](https://doi.org/10.1016/j.ocemod.2019.01.004), Ocean Modelling, 2019
 
-### 2018 (35 publications)
+### 2018 (36 publications)
 
  * Adloff, F., Jordà, G., Somot, S., Sevault, F., Arsouze, T., Meyssignac, B., Li, L., Planton, S., [Improving sea level simulation in Mediterranean regional climate models](https://doi.org/10.1007/s00382-017-3842-3), Climate Dynamics, 2018
  * Akhtar, N., Brauch, J., Ahrens, B., [Climate modeling over the Mediterranean Sea: impact of resolution and ocean coupling](https://doi.org/10.1007/s00382-017-3570-8), Climate Dynamics, 2018
@@ -148,6 +150,7 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
  * Obermann-Hellhund, A., Conte, D., Somot, S., Torma, C., Ahrens, B., [Mistral and Tramontane wind systems in climate simulations from 1950 to 2100](https://doi.org/10.1007/s00382-017-3635-8), Climate Dynamics, 2018
  * Panthou, G., Vrac, M., Drobinski, P., Bastin, S., Li, L., [Impact of model resolution and Mediterranean sea coupling on hydrometeorological extremes in RCMs in the frame of HyMeX and MED-CORDEX](https://doi.org/10.1007/s00382-016-3374-2), Climate Dynamics, 2018
  * Pieczka, I., Pongrácz, R., Bartholy, J., André, K., [Future temperature projections for Hungary based on RegCM4.3 simulations using new Representative Concentration Pathways scenarios](https://doi.org/10.1504/ijgw.2018.093121), International Journal of Global Warming, 2018
+ * Richon, C., Dutay, J., Dulac, F., Wang, R., Balkanski, Y., Nabat, P., Aumont, O., Desboeufs, K., Laurent, B., Guieu, C., Raimbault, P., Beuvier, J., [Modeling the impacts of atmospheric deposition of nitrogen and desert dust-derived phosphorus on nutrients and biological budgets of the Mediterranean Sea](https://doi.org/10.1016/j.pocean.2017.04.009), Progress in Oceanography, 2018
  * Rysman, J., Berthou, S., Claud, C., Drobinski, P., Chaboureau, J., Delanoë, J., [Potential of microwave observations for the evaluation of rainfall and convection in a regional climate model in the frame of HyMeX and MED-CORDEX](https://doi.org/10.1007/s00382-016-3203-7), Climate Dynamics, 2018
  * Sanchez-Gomez, E., Somot, S., [Impact of the internal variability on the cyclone tracks simulated by a regional climate model over the Med-CORDEX domain](https://doi.org/10.1007/s00382-016-3394-y), Climate Dynamics, 2018
  * Somot, S., Houpert, L., Sevault, F., Testor, P., Bosse, A., Taupier-Letage, I., Bouin, M., Waldman, R., Cassou, C., Sanchez-Gomez, E., Durrieu De Madron, X., Adloff, F., Nabat, P., Herrmann, M., [Characterizing, modelling and understanding the climate variability of the deep water formation in the North-Western Mediterranean Sea](https://doi.org/10.1007/s00382-016-3295-0), Climate Dynamics, 2018
