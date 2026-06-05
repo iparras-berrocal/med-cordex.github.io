@@ -9,10 +9,11 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
 
 {% include toc %}
 
-## Publications based on Med-CORDEX simulations (total: 190)
+## Publications based on Med-CORDEX simulations (total: 191)
 
-### 2026 (1 publication)
+### 2026 (2 publications)
 
+ * De Rovere, F., Bonino, G., McAdam, R., Scoccimarro, E., Somot, S., Parras-Berrocal, I., Ahrens, B., Djurdjevic, V., Li, L., Masina, S., [The added value of Med-CORDEX Coupled High-Resolution Regional Climate Models in representing Sea Surface Temperature and Marine Heatwaves in the Mediterranean Sea](https://doi.org/10.5194/egusphere-2026-2752), , 2026
  * Hamitouche, M., Fosser, G., RafieeiNasab, A., Anav, A., [Towards improved Euro-Mediterranean discharge simulations in regional coupled climate models: a comparative assessment of hydrologic performance](https://doi.org/10.5194/gmd-19-2881-2026), Geoscientific Model Development, 2026
 
 ### 2025 (14 publications)
