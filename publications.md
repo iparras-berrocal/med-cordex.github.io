@@ -9,12 +9,13 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
 
 {% include toc %}
 
-## Publications based on Med-CORDEX simulations (total: 191)
+## Publications based on Med-CORDEX simulations (total: 193)
 
-### 2026 (2 publications)
+### 2026 (3 publications)
 
  * De Rovere, F., Bonino, G., McAdam, R., Scoccimarro, E., Somot, S., Parras-Berrocal, I., Ahrens, B., Djurdjevic, V., Li, L., Masina, S., [The added value of Med-CORDEX Coupled High-Resolution Regional Climate Models in representing Sea Surface Temperature and Marine Heatwaves in the Mediterranean Sea](https://doi.org/10.5194/egusphere-2026-2752), , 2026
  * Hamitouche, M., Fosser, G., RafieeiNasab, A., Anav, A., [Towards improved Euro-Mediterranean discharge simulations in regional coupled climate models: a comparative assessment of hydrologic performance](https://doi.org/10.5194/gmd-19-2881-2026), Geoscientific Model Development, 2026
+ * Ortega, M., Gutiérrez, C., López-Franca, N., Molina, M., Cabos, W., Sein, D., Sánchez, E., [Levante and Poniente winds in the Strait of Gibraltar: Present and future characterization using regional climate models](https://doi.org/10.1016/j.atmosres.2026.109071), Atmospheric Research, 2026
 
 ### 2025 (14 publications)
 
@@ -33,7 +34,7 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
  * Parras-Berrocal, I., Waldman, R., Gonzalez, N., Ahrens, B., Cabos, W., Jordà, G., Lionello, P., Sannino, G., Somot, S., [Regionalized Mediterranean relative sea level projections under high-emission regional climate scenarios](https://doi.org/10.1088/1748-9326/ae15a5), Environmental Research Letters, 2025
  * Zhang, Y., Sevault, F., Pennel, R., Baklouti, M., [Analysis of the impact of vertical variation and temporal frequency of the chlorophyll forcing field on modelled temperature in the Mediterranean Sea and potential implications for regional climate projections](https://doi.org/10.1016/j.ocemod.2024.102490), Ocean Modelling, 2025
 
-### 2024 (16 publications)
+### 2024 (17 publications)
 
  * Anav, A., Antonelli, M., Calmanti, S., Carillo, A., Catalano, F., Dell’Aquila, A., Iacono, R., Marullo, S., Napolitano, E., Palma, M., Pisacane, G., Sannino, G., Struglia, M., [Dynamical downscaling of CMIP6 scenarios with ENEA-REG: an impact-oriented application for the Med-CORDEX region](https://doi.org/10.1007/s00382-023-07064-3), Climate Dynamics, 2024
  * Caillaud, C., Somot, S., Douville, H., Alias, A., Bastin, S., Brienen, S., Demory, M., Dobler, A., Feldmann, H., Frisius, T., Goergen, K., Kendon, E., Keuler, K., Lenderink, G., Mercogliano, P., Pichelli, E., Soares, P., Tölle, M., De Vries, H., [Northwestern Mediterranean Heavy Precipitation Events in a Warmer Climate: Robust Versus Uncertain Changes With a Large Convection‐Permitting Model Ensemble](https://doi.org/10.1029/2023GL105143), Geophysical Research Letters, 2024
@@ -51,6 +52,7 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
  * Rusu, L., [An analysis of the expected wave conditions in the Mediterranean Sea in the context of global warming](https://doi.org/10.1016/j.oceaneng.2024.117487), Ocean Engineering, 2024
  * Rusu, L., [Climate Change Impact on the Future Sea State Conditions in the Black Sea](https://doi.org/10.2112/JCR-SI113-040.1), Journal of Coastal Research, 2024
  * Sevault, F., [Atlas of the 1980-2018 ERA-Interim simulation with the coupled regional climate system model CNRM-RCSM6](https://doi.org/10.5281/zenodo.11066601), , 2024
+ * Verri, G., Furnari, L., Gunduz, M., Senatore, A., Santos da Costa, V., De Lorenzis, A., Fedele, G., Manco, I., Mentaschi, L., Clementi, E., Coppini, G., Mercogliano, P., Mendicino, G., Pinardi, N., [Climate projections of the Adriatic Sea: role of river release](https://doi.org/10.3389/fclim.2024.1368413), Frontiers in Climate, 2024
 
 ### 2023 (7 publications)
 
