@@ -9,7 +9,7 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
 
 {% include toc %}
 
-## Publications based on Med-CORDEX simulations (total: 193)
+## Publications based on Med-CORDEX simulations (total: 194)
 
 ### 2026 (3 publications)
 
@@ -85,7 +85,7 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
  * Kalmár, T., Pieczka, I., Pongrácz, R., [A sensitivity analysis of the different setups of the RegCM4.5 model for the Carpathian region](https://doi.org/10.1002/joc.6761), International Journal of Climatology, 2021
  * Pichelli, E., Coppola, E., Sobolowski, S., Ban, N., Giorgi, F., Stocchi, P., Alias, A., Belušić, D., Berthou, S., Caillaud, C., Cardoso, R., Chan, S., Christensen, O., Dobler, A., de Vries, H., Goergen, K., Kendon, E., Keuler, K., Lenderink, G., Lorenz, T., Mishra, A., Panitz, H., Schär, C., Soares, P., Truhetz, H., Vergara-Temprado, J., [The first multi-model ensemble of regional climate simulations at kilometer-scale resolution part 2: historical and future simulations of precipitation](https://doi.org/10.1007/s00382-021-05657-4), Climate Dynamics, 2021
 
-### 2020 (16 publications)
+### 2020 (17 publications)
 
  * Allam, A., Moussa, R., Najem, W., Bocquillon, C., [Specific climate classification for Mediterranean hydrology and future evolution under Med-CORDEX regional climate model scenarios](https://doi.org/10.5194/hess-24-4503-2020), Hydrology and Earth System Sciences, 2020
  * Boé, J., Somot, S., Corre, L., Nabat, P., [Large discrepancies in summer climate change over Europe as projected by global and regional climate models: causes and consequences](https://doi.org/10.1007/s00382-020-05153-1), Climate Dynamics, 2020
@@ -97,6 +97,7 @@ We strongly encourage people downloading data from the Med-CORDEX database to co
  * Kahraman, A., Ural, D., Önol, B., [Future Changes in Euro-Mediterranean Daytime Severe Thunderstorm Environments Based on an RCP8.5 Med-CORDEX Simulation](https://doi.org/10.3390/atmos11080822), Atmosphere, 2020
  * Nabat, P., Somot, S., Cassou, C., Mallet, M., Michou, M., Bouniol, D., Decharme, B., Drugé, T., Roehrig, R., Saint-Martin, D., [Modulation of radiative aerosols effects by atmospheric circulation over the Euro-Mediterranean region](https://doi.org/10.5194/acp-20-8315-2020), Atmospheric Chemistry and Physics, 2020
  * Pagès, R., Baklouti, M., Barrier, N., Ayache, M., Sevault, F., Somot, S., Moutin, T., [Projected Effects of Climate-Induced Changes in Hydrodynamics on the Biogeochemistry of the Mediterranean Sea Under the RCP 8.5 Regional Climate Scenario](https://doi.org/10.3389/fmars.2020.563615), Frontiers in Marine Science, 2020
+ * Pagès, R., Baklouti, M., Barrier, N., Richon, C., Dutay, J., Moutin, T., [Changes in rivers inputs during the last decades significantly impacted the biogeochemistry of the eastern Mediterranean basin: A modelling study](https://doi.org/10.1016/j.pocean.2019.102242), Progress in Oceanography, 2020
  * Parras-Berrocal, I., Vazquez, R., Cabos, W., Sein, D., Mañanes, R., Perez-Sanz, J., Izquierdo, A., [The climate change signal in the Mediterranean Sea in a regionally coupled atmosphere–ocean model](https://doi.org/10.5194/os-16-743-2020), Ocean Science, 2020
  * Reale, M., Giorgi, F., Solidoro, C., Di Biagio, V., Di Sante, F., Mariotti, L., Farneti, R., Sannino, G., [The Regional Earth System Model RegCM‐ES: Evaluation of the Mediterranean Climate and Marine Biogeochemistry](https://doi.org/10.1029/2019MS001812), Journal of Advances in Modeling Earth Systems, 2020
  * Reale, M., Salon, S., Somot, S., Solidoro, C., Giorgi, F., Crise, A., Cossarini, G., Lazzari, P., Sevault, F., [Influence of large-scale atmospheric circulation patterns on nutrient dynamics in the Mediterranean Sea in the extended winter season (October-March) 1961-1999](https://doi.org/10.3354/cr01620), Climate Research, 2020
